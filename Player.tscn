@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjk3gltcqg6gj"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_2fn33"]
+[ext_resource type="Texture2D" uid="uid://b3ivxo03t0ymy" path="res://Sprites/BlueGuy.png" id="1_vwqu3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_algsl"]
+size = Vector2(10, 15)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_2fn33")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_vwqu3")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_algsl")
