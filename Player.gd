@@ -37,9 +37,9 @@ func _physics_process(delta):
 
 func shoot(dir):
 	var b = Bullet.instantiate()
-	add_child(b)
+	get_tree().get_root().add_child(b)
 	b._set_direction(dir)
 	if dir >= 0:
-		b.transform = $Bullet_Right.transform
+		b.global_transform = $Bullet_Right.global_transform
 	else:
-		b.transform = $Bullet_Left.transform
+		b.global_transform = $Bullet_Left.global_transform
