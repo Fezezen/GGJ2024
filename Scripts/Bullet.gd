@@ -1,6 +1,7 @@
 extends Area2D
 
-var speed = 1000
+@export var speed = 1000
+@export var damage = 30
 var velocity = Vector2(1,0)
 var ignoreBody = null
 
@@ -11,6 +12,10 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	if (body.get_instance_id() == ignoreBody.get_instance_id()):
 		return
+	
+	if body.is_in_group("Player"):
+		body._take_damage(damage)
+		
 	queue_free()
 	
 func _set_dir(dir : Vector2):

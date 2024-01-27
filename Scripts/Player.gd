@@ -13,6 +13,8 @@ var lastDirection = 1
 @export var controls: Resource = null
 @export var Bullet : PackedScene
 
+@export var health : int = 100
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -51,3 +53,9 @@ func shoot(dir):
 
 func screen_wrap():
 	position = position.posmodv(screen_size)
+	
+func _take_damage(damage):
+	health -= damage
+	
+	if health <= 0:
+		queue_free()
