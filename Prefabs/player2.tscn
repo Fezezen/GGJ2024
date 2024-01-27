@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cg62rpkhgdts7"]
 
 [ext_resource type="PackedScene" uid="uid://bjk3gltcqg6gj" path="res://Prefabs/PlayerBase.tscn" id="1_mgcbi"]
-[ext_resource type="Resource" uid="uid://bi7sp66ts6sy3" path="res://player_2_controls.tres" id="2_4hmo5"]
+[ext_resource type="Resource" uid="uid://bi7sp66ts6sy3" path="res://Resources/player_2_controls.tres" id="2_4hmo5"]
 
 [node name="Player" instance=ExtResource("1_mgcbi")]
 scale = Vector2(10, 10)
