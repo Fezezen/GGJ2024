@@ -13,8 +13,14 @@ func _on_body_entered(body):
 		return
 	queue_free()
 	
-func _set_velocity(dir : Vector2):
+func _set_dir(dir : Vector2):
 	velocity = dir * speed
+
+func _get_velocity():
+	return velocity
+	
+func _set_velocity(vel):
+	velocity = vel
 
 func _set_speed(spd):
 	speed = spd
