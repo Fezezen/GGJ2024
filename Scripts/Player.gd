@@ -8,6 +8,8 @@ const JUMP_VELOCITY = -450.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var lastDirection = 1
 
+@onready var screen_size = get_viewport().size
+
 @export var controls: Resource = null
 @export var Bullet : PackedScene
 
@@ -34,13 +36,17 @@ func _physics_process(delta):
 		shoot(lastDirection)
 
 	move_and_slide()
+	screen_wrap()
 
 func shoot(dir):
 	var b = Bullet.instantiate()
 	get_tree().get_root().add_child(b)
-	b._set_velocity(Vector2(dir,0))
+	b._set_velocity(Vector2(dir,-.2))
 	b._set_ignoreBody(self)
 	if dir >= 0:
 		b.global_transform = $Bullet_Right.global_transform
 	else:
 		b.global_transform = $Bullet_Left.global_transform
+
+func screen_wrap():
+	position = position.posmodv(screen_size)

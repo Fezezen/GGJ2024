@@ -8,6 +8,8 @@ size = Vector2(5.08607, 46.5116)
 
 [node name="Bullet" type="Area2D"]
 scale = Vector2(17.04, 13.76)
+gravity_space_override = 1
+gravity = 1393.74
 script = ExtResource("1_pm1uw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
