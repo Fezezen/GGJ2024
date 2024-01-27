@@ -10,7 +10,7 @@ func _physics_process(delta):
 	position += velocity * delta
 
 func _on_body_entered(body):
-	if (body.get_instance_id() == ignoreBody.get_instance_id()):
+	if (body.get_instance_id() == ignoreBody.get_instance_id() or not body.is_visible()):
 		return
 	
 	if body.is_in_group("Player"):

@@ -7,6 +7,8 @@ const JUMP_VELOCITY = -450.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var lastDirection = 1
+var spawnProtection = 0
+var spawnProtectionFlash = 0
 
 @onready var screen_size = get_viewport().size
 
@@ -14,6 +16,8 @@ var lastDirection = 1
 @export var Bullet : PackedScene
 
 @export var health : int = 100
+@onready var maxHealth : int = health
+@onready var startPosition = position
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -51,11 +55,39 @@ func shoot(dir):
 	else:
 		b.global_transform = $Bullet_Left.global_transform
 
+func _process(delta):
+	if spawnProtection > 0:
+		spawnProtection -= delta
+		spawnProtectionFlash += delta
+		
+		if spawnProtection <= 0:
+			show()
+		else:
+			if spawnProtectionFlash > 0.5:
+				spawnProtectionFlash = 0
+			
+			if spawnProtectionFlash > 0.25:
+				hide()
+			else:
+				show()
+
 func screen_wrap():
 	position = position.posmodv(screen_size)
 	
 func _take_damage(damage):
+	if health <= 0 or spawnProtection > 0:
+		return
 	health -= damage
 	
 	if health <= 0:
-		queue_free()
+		respawn()
+
+func respawn():
+	hide()
+	set_process_input(false)
+	await get_tree().create_timer(1.0).timeout
+	show()
+	set_process_input(true)
+	health = maxHealth
+	position = startPosition
+	spawnProtection = 2
