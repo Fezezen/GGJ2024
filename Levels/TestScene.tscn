@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://qo4xtbs3wjcr"]
 
-[ext_resource type="PackedScene" uid="uid://dky3k75q8h8md" path="res://Prefabs/player1.tscn" id="1_i8d6h"]
-[ext_resource type="PackedScene" uid="uid://cg62rpkhgdts7" path="res://Prefabs/player2.tscn" id="2_6mdjd"]
+[ext_resource type="PackedScene" uid="uid://dky3k75q8h8md" path="res://Prefabs/player1.tscn" id="1_1n2a8"]
+[ext_resource type="PackedScene" uid="uid://cg62rpkhgdts7" path="res://Prefabs/player2.tscn" id="2_ouaqf"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uht4n"]
 
@@ -88,8 +88,8 @@ scale = Vector2(0.807282, 1)
 shape = SubResource("RectangleShape2D_60fyt")
 one_way_collision = true
 
-[node name="Player1" parent="." instance=ExtResource("1_i8d6h")]
+[node name="Player1" parent="." instance=ExtResource("1_1n2a8")]
 position = Vector2(175, 482)
 
-[node name="Player" parent="." instance=ExtResource("2_6mdjd")]
+[node name="Player" parent="." instance=ExtResource("2_ouaqf")]
 position = Vector2(1730, 509)
