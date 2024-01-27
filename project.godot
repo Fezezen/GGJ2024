@@ -19,6 +19,7 @@ config/icon="res://Sprites/Anger.png"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/stretch/mode="viewport"
 mouse_cursor/custom_image="res://Sprites/Cursor_Paint3D.png"
 
 [input]

@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://bjk3gltcqg6gj"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_2fn33"]
+[ext_resource type="PackedScene" uid="uid://bdb8umtfjiijj" path="res://Prefabs/Bullet.tscn" id="2_8gvi0"]
+[ext_resource type="Texture2D" uid="uid://bo1yxrrbhwoa5" path="res://Sprites/PlayerHead.png" id="2_hao02"]
+[ext_resource type="Texture2D" uid="uid://dcc56i5fes60s" path="res://Sprites/PlayerBody.png" id="3_1o1re"]
+[ext_resource type="Texture2D" uid="uid://dnabve7u0p7d3" path="res://Sprites/PlayerArm.png" id="4_roy3d"]
+[ext_resource type="Texture2D" uid="uid://e5twtnq8ypge" path="res://Sprites/PlayerLeg.png" id="5_byyaa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7clb"]
+size = Vector2(6, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ih0wy"]
+size = Vector2(2, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybxqx"]
+size = Vector2(4, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqqh7"]
+size = Vector2(4, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qhng"]
+radius = 8.83883
+height = 45.9619
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_2fn33")
+Bullet = ExtResource("2_8gvi0")
+
+[node name="Collision_Head" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_d7clb")
+
+[node name="Collision_Body" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_ih0wy")
+
+[node name="Collision_LeftArm" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 0.5)
+shape = SubResource("RectangleShape2D_ybxqx")
+
+[node name="Collision_RightArm" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0.5)
+shape = SubResource("RectangleShape2D_vqqh7")
+
+[node name="Collision_LeftLeg" type="CollisionShape2D" parent="."]
+position = Vector2(-2.485, 6.5)
+rotation = 0.785398
+scale = Vector2(0.08, 0.092)
+shape = SubResource("CapsuleShape2D_7qhng")
+
+[node name="Collision_RightLeg" type="CollisionShape2D" parent="."]
+position = Vector2(2.485, 6.5)
+rotation = -0.785398
+scale = Vector2(0.08, 0.092)
+shape = SubResource("CapsuleShape2D_7qhng")
+
+[node name="Bullet_Left" type="Marker2D" parent="."]
+position = Vector2(-5, 0)
+
+[node name="Bullet_Right" type="Marker2D" parent="."]
+position = Vector2(5, 0)
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Sprite_Head" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, -4)
+texture = ExtResource("2_hao02")
+
+[node name="Sprite_Body" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, 2)
+texture = ExtResource("3_1o1re")
+
+[node name="Sprite_ArmLeft" type="Sprite2D" parent="Sprites"]
+position = Vector2(-3, 0.5)
+texture = ExtResource("4_roy3d")
+
+[node name="Sprite_ArmRight" type="Sprite2D" parent="Sprites"]
+position = Vector2(3, 0.5)
+texture = ExtResource("4_roy3d")
+
+[node name="Sprite_LegLeft" type="Sprite2D" parent="Sprites"]
+position = Vector2(-2.5, 6.5)
+rotation = 1.5708
+texture = ExtResource("5_byyaa")
+
+[node name="Sprite_LegRight" type="Sprite2D" parent="Sprites"]
+position = Vector2(2.5, 6.5)
+texture = ExtResource("5_byyaa")

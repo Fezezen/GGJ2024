@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://qo4xtbs3wjcr"]
+[gd_scene load_steps=5 format=3 uid="uid://qo4xtbs3wjcr"]
 
-[ext_resource type="Resource" uid="uid://cslgfcoofcsa4" path="res://player_1_controls.tres" id="2_8c0an"]
-[ext_resource type="PackedScene" uid="uid://bjk3gltcqg6gj" path="res://Player.tscn" id="2_gkem0"]
-[ext_resource type="Resource" uid="uid://bi7sp66ts6sy3" path="res://player_2_controls.tres" id="3_7xgrm"]
-[ext_resource type="Texture2D" uid="uid://bpi2sqdvkffm6" path="res://Sprites/RedGuy.png" id="4_5qto7"]
+[ext_resource type="PackedScene" uid="uid://dky3k75q8h8md" path="res://Prefabs/player1.tscn" id="1_i8d6h"]
+[ext_resource type="PackedScene" uid="uid://cg62rpkhgdts7" path="res://Prefabs/player2.tscn" id="2_6mdjd"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uht4n"]
 
@@ -11,19 +9,6 @@
 size = Vector2(7.49119, 40.8378)
 
 [node name="World" type="Node2D"]
-
-[node name="Player1" parent="." instance=ExtResource("2_gkem0")]
-position = Vector2(300, 400)
-scale = Vector2(9, 9)
-controls = ExtResource("2_8c0an")
-
-[node name="Player2" parent="." instance=ExtResource("2_gkem0")]
-position = Vector2(1620, 400)
-scale = Vector2(9, 9)
-controls = ExtResource("3_7xgrm")
-
-[node name="Sprite" parent="Player2" index="0"]
-texture = ExtResource("4_5qto7")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(960, 1023)
@@ -103,5 +88,8 @@ scale = Vector2(0.807282, 1)
 shape = SubResource("RectangleShape2D_60fyt")
 one_way_collision = true
 
-[editable path="Player1"]
-[editable path="Player2"]
+[node name="Player1" parent="." instance=ExtResource("1_i8d6h")]
+position = Vector2(175, 482)
+
+[node name="Player" parent="." instance=ExtResource("2_6mdjd")]
+position = Vector2(1730, 509)
