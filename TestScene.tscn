@@ -40,5 +40,68 @@ position = Vector2(-0.00527716, 0.183945)
 scale = Vector2(0.807282, 1)
 shape = SubResource("RectangleShape2D_60fyt")
 
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2(960, 870)
+rotation = 3.14159
+scale = Vector2(100, 3.988)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor2"]
+scale = Vector2(6.05092, 40.6034)
+texture = SubResource("PlaceholderTexture2D_uht4n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(-0.00527716, 0.183945)
+scale = Vector2(0.807282, 1)
+shape = SubResource("RectangleShape2D_60fyt")
+
+[node name="OneWayWall" type="StaticBody2D" parent="."]
+position = Vector2(1127, 568)
+rotation = 4.71239
+scale = Vector2(100, 0.788)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="OneWayWall"]
+scale = Vector2(6.05092, 40.6034)
+texture = SubResource("PlaceholderTexture2D_uht4n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayWall"]
+position = Vector2(-0.00527716, 0.183945)
+scale = Vector2(0.807282, 1)
+shape = SubResource("RectangleShape2D_60fyt")
+one_way_collision = true
+
+[node name="OneWayWall2" type="StaticBody2D" parent="."]
+position = Vector2(470, 650)
+rotation = 1.5708
+scale = Vector2(100, 0.788)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="OneWayWall2"]
+scale = Vector2(6.05092, 40.6034)
+texture = SubResource("PlaceholderTexture2D_uht4n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayWall2"]
+position = Vector2(-0.00527716, 0.183945)
+scale = Vector2(0.807282, 1)
+shape = SubResource("RectangleShape2D_60fyt")
+one_way_collision = true
+
+[node name="OneWayWall3" type="StaticBody2D" parent="."]
+position = Vector2(1344, 795)
+rotation = 6.28318
+scale = Vector2(28.56, 0.3)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="OneWayWall3"]
+scale = Vector2(6.05092, 40.6034)
+texture = SubResource("PlaceholderTexture2D_uht4n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayWall3"]
+position = Vector2(-0.00527716, 0.183945)
+scale = Vector2(0.807282, 1)
+shape = SubResource("RectangleShape2D_60fyt")
+one_way_collision = true
+
 [editable path="Player1"]
 [editable path="Player2"]
