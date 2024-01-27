@@ -1,24 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://qo4xtbs3wjcr"]
+[gd_scene load_steps=7 format=3 uid="uid://qo4xtbs3wjcr"]
 
-[ext_resource type="Texture2D" uid="uid://b7ri3xu6q8mgm" path="res://icon.svg" id="1_0h677"]
+[ext_resource type="Resource" uid="uid://cslgfcoofcsa4" path="res://player_1_controls.tres" id="2_8c0an"]
 [ext_resource type="PackedScene" uid="uid://bjk3gltcqg6gj" path="res://Player.tscn" id="2_gkem0"]
+[ext_resource type="Resource" uid="uid://bi7sp66ts6sy3" path="res://player_2_controls.tres" id="3_7xgrm"]
+[ext_resource type="Texture2D" uid="uid://bpi2sqdvkffm6" path="res://Sprites/RedGuy.png" id="4_5qto7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b37vq"]
-size = Vector2(127, 128)
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uht4n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60fyt"]
+size = Vector2(7.49119, 40.8378)
 
 [node name="World" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Player1" parent="." instance=ExtResource("2_gkem0")]
+position = Vector2(300, 400)
+scale = Vector2(9, 9)
+controls = ExtResource("2_8c0an")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(64.5, 35)
-scale = Vector2(1, 0.140625)
-shape = SubResource("RectangleShape2D_b37vq")
+[node name="Player2" parent="." instance=ExtResource("2_gkem0")]
+position = Vector2(1620, 400)
+scale = Vector2(9, 9)
+controls = ExtResource("3_7xgrm")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(64, 35)
-scale = Vector2(1, 0.140625)
-texture = ExtResource("1_0h677")
+[node name="Sprite" parent="Player2" index="0"]
+texture = ExtResource("4_5qto7")
 
-[node name="Player" parent="." instance=ExtResource("2_gkem0")]
-position = Vector2(20, 14)
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(960, 1023)
+rotation = 3.14159
+scale = Vector2(326.321, 3.98796)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+scale = Vector2(6.05092, 40.6034)
+texture = SubResource("PlaceholderTexture2D_uht4n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-0.00527716, 0.183945)
+scale = Vector2(0.807282, 1)
+shape = SubResource("RectangleShape2D_60fyt")
+
+[editable path="Player1"]
+[editable path="Player2"]
