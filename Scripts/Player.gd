@@ -14,7 +14,7 @@ var spawnProtectionFlash = 0
 @export var controls: Resource = null
 @export var Bullet : PackedScene
 
-@export var shootCooldown: float = 0.3
+var shootCooldown: float = 0.3
 var currentShootCooldown: float = 0
 
 @export var health : int = 100
@@ -106,5 +106,6 @@ func respawn():
 	position = startPosition
 	spawnProtection = 2
 
-func _set_weapon(weapon : PackedScene):
+func _set_weapon(weapon : PackedScene, coolDown):
 	Bullet = weapon
+	shootCooldown = coolDown

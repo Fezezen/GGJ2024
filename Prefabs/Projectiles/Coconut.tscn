@@ -5,6 +5,8 @@
 
 [node name="Coconut" instance=ExtResource("1_aigf8")]
 scale = Vector2(1, 1)
+speed = 700
+damage = 50
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.52, 0.52)
