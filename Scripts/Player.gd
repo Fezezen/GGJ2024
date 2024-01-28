@@ -48,7 +48,7 @@ func _physics_process(delta):
 
 func shoot(dir):
 	# check shoot cooldown
-	if currentShootCooldown > 0:
+	if currentShootCooldown > 0 or health <= 0:
 		return
 		
 	currentShootCooldown = shootCooldown
