@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GGJ2024"
-run/main_scene="res://Levels/TestScene.tscn"
+run/main_scene="res://Levels/level_1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Sprites/Anger.png"
 
@@ -65,9 +65,10 @@ p2_shoot={
 ]
 }
 
-[physics]
+[layer_names]
 
-2d/default_gravity=3000.0
+2d_physics/layer_2="Projectile"
+2d_physics/layer_3="Ladder"
 
 [rendering]
 

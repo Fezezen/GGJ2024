@@ -1,17 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjk3gltcqg6gj"]
+[gd_scene load_steps=5 format=3 uid="uid://bjk3gltcqg6gj"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_2fn33"]
-[ext_resource type="Texture2D" uid="uid://bo1yxrrbhwoa5" path="res://Sprites/PlayerHead.png" id="2_hao02"]
-[ext_resource type="PackedScene" uid="uid://bni2o8b8wp330" path="res://Prefabs/Projectiles/Apple.tscn" id="2_p0h1t"]
-[ext_resource type="Texture2D" uid="uid://dcc56i5fes60s" path="res://Sprites/PlayerBody.png" id="3_1o1re"]
-[ext_resource type="Texture2D" uid="uid://dnabve7u0p7d3" path="res://Sprites/PlayerArm.png" id="4_roy3d"]
-[ext_resource type="Texture2D" uid="uid://e5twtnq8ypge" path="res://Sprites/PlayerLeg.png" id="5_byyaa"]
+[ext_resource type="PackedScene" uid="uid://bdb8umtfjiijj" path="res://Prefabs/Projectiles/Bullet.tscn" id="2_8gvi0"]
+[ext_resource type="Resource" uid="uid://cslgfcoofcsa4" path="res://Resources/player_1_controls.tres" id="2_kj3tt"]
+[ext_resource type="Texture2D" uid="uid://b3ivxo03t0ymy" path="res://Sprites/BlueGuy.png" id="3_mpnqx"]
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(7, 7)
+collision_mask = 5
 script = ExtResource("1_2fn33")
-JUMP_VELOCITY = -1100.0
-Bullet = ExtResource("2_p0h1t")
+controls = ExtResource("2_kj3tt")
+Bullet = ExtResource("2_8gvi0")
 
 [node name="Bullet_Left" type="Marker2D" parent="."]
 position = Vector2(-5, 0)
@@ -19,34 +18,12 @@ position = Vector2(-5, 0)
 [node name="Bullet_Right" type="Marker2D" parent="."]
 position = Vector2(5, 0)
 
-[node name="Sprites" type="Node2D" parent="."]
-
-[node name="Sprite_Head" type="Sprite2D" parent="Sprites"]
-position = Vector2(0, -4)
-texture = ExtResource("2_hao02")
-
-[node name="Sprite_Body" type="Sprite2D" parent="Sprites"]
-position = Vector2(0, 2)
-texture = ExtResource("3_1o1re")
-
-[node name="Sprite_ArmLeft" type="Sprite2D" parent="Sprites"]
-position = Vector2(-3, 0.5)
-texture = ExtResource("4_roy3d")
-
-[node name="Sprite_ArmRight" type="Sprite2D" parent="Sprites"]
-position = Vector2(3, 0.5)
-texture = ExtResource("4_roy3d")
-
-[node name="Sprite_LegLeft" type="Sprite2D" parent="Sprites"]
-position = Vector2(-2.5, 6.5)
-rotation = 1.5708
-texture = ExtResource("5_byyaa")
-
-[node name="Sprite_LegRight" type="Sprite2D" parent="Sprites"]
-position = Vector2(2.5, 6.5)
-texture = ExtResource("5_byyaa")
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 7)
 scale = Vector2(1, 1.12)
 polygon = PackedVector2Array(-3, -12.5, 3, -12.5, 3, -6.25001, 5, -6.25001, 5, -5.35715, 1, -5.35715, 1, -1.78572, 4, -1.78572, 4, 0.892858, -4, 0.892858, -4, -1.78572, -1, -1.78572, -1, -5.35715, -5, -5.35715, -5, -6.25001, -3, -6.25001)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -2.38419e-07)
+scale = Vector2(1, 1)
+texture = ExtResource("3_mpnqx")
