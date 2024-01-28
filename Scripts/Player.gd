@@ -14,6 +14,9 @@ var spawnProtectionFlash = 0
 @export var controls: Resource = null
 @export var Bullet : PackedScene
 
+@export var shootCooldown: float = 0.3
+var currentShootCooldown: float = 0
+
 @export var health : int = 100
 @onready var maxHealth : int = health
 @onready var startPosition = position
@@ -44,6 +47,12 @@ func _physics_process(delta):
 	screen_wrap()
 
 func shoot(dir):
+	# check shoot cooldown
+	if currentShootCooldown > 0:
+		return
+		
+	currentShootCooldown = shootCooldown
+	
 	var b = Bullet.instantiate()
 	get_tree().get_root().add_child(b)
 	b._set_dir(Vector2(dir,-.2))
@@ -55,6 +64,10 @@ func shoot(dir):
 		b.global_transform = $Bullet_Left.global_transform
 
 func _process(delta):
+	if currentShootCooldown > 0:
+		currentShootCooldown -= delta
+	
+	# spawn protection logic and flashing
 	if spawnProtection > 0:
 		spawnProtection -= delta
 		spawnProtectionFlash += delta

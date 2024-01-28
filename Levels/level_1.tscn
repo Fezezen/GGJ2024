@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://3sntgov2ckg6"]
+[gd_scene load_steps=7 format=3 uid="uid://cr77qgy1l4gbv"]
 
 [ext_resource type="Texture2D" uid="uid://dyagu2c5u7ppq" path="res://Sprites/arcade_platformerV2.png" id="1_quijy"]
 [ext_resource type="PackedScene" uid="uid://dky3k75q8h8md" path="res://Prefabs/player1.tscn" id="2_hsygr"]
