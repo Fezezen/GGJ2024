@@ -86,7 +86,10 @@ func _process(delta):
 				modulate.a = 1
 
 func screen_wrap():
-	position = position.posmodv(screen_size)
+	if position.y <= 0:
+		pass
+	else:	
+		position = position.posmodv(screen_size)
 	
 func _take_damage(damage):
 	if health <= 0 or spawnProtection > 0:
