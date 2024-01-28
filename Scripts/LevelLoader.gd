@@ -1,3 +1,4 @@
+class_name LevelLoader
 extends Node2D
 
 @export var nextLevelName = ""

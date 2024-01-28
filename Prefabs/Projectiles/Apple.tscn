@@ -13,6 +13,7 @@ texture = ExtResource("2_eicof")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 1.19209e-07)
+scale = Vector2(1.7, 0.17)
 
 [node name="ImpactSFX" parent="." index="2"]
 stream = ExtResource("3_82uw6")

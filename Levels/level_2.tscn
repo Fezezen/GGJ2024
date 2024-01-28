@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://ituxsrni6pp8"]
+[gd_scene load_steps=13 format=3 uid="uid://ituxsrni6pp8"]
 
 [ext_resource type="Texture2D" uid="uid://bd66cj7g4kmxt" path="res://Tilesets/Tileset.png" id="1_wtfik"]
 [ext_resource type="PackedScene" uid="uid://dky3k75q8h8md" path="res://Prefabs/player1.tscn" id="2_wvnn5"]
 [ext_resource type="PackedScene" uid="uid://cg62rpkhgdts7" path="res://Prefabs/player2.tscn" id="3_8wtfa"]
 [ext_resource type="Texture2D" uid="uid://ds4vqhsudv3bj" path="res://Sprites/Wata'r.png" id="4_q868l"]
 [ext_resource type="PackedScene" uid="uid://cgqg721hlb1st" path="res://Prefabs/level_loader.tscn" id="6_5y4sw"]
+[ext_resource type="PackedScene" uid="uid://cxxmsodrx03ua" path="res://Prefabs/lives_hud.tscn" id="7_icivj"]
 [ext_resource type="PackedScene" uid="uid://c5bwjijfafj4a" path="res://Prefabs/WeaponSpawner.tscn" id="7_tuogg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uum18"]
@@ -530,6 +531,7 @@ position = Vector2(1720, 688)
 
 [node name="PlatformCollision1" type="StaticBody2D" parent="."]
 position = Vector2(480, 264)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformCollision1"]
 position = Vector2(116, 16)
@@ -538,6 +540,7 @@ one_way_collision = true
 
 [node name="PlatformCollision2" type="StaticBody2D" parent="."]
 position = Vector2(1608, 264)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformCollision2"]
 position = Vector2(120, 0)
@@ -547,6 +550,7 @@ one_way_collision = true
 [node name="PlatformCollision3" type="StaticBody2D" parent="."]
 position = Vector2(992, 344)
 scale = Vector2(2.12, 1)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformCollision3"]
 position = Vector2(116, 16)
@@ -556,6 +560,7 @@ one_way_collision = true
 [node name="PlatformCollision4" type="StaticBody2D" parent="."]
 position = Vector2(8, 344)
 scale = Vector2(1.32, 1)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformCollision4"]
 position = Vector2(116, 16)
@@ -781,5 +786,8 @@ Player1 = NodePath("../Player1")
 Player2 = NodePath("../Player2")
 
 [node name="WeaponSpawner" parent="." instance=ExtResource("7_tuogg")]
+
+[node name="LivesHud" parent="." node_paths=PackedStringArray("levelLoader") instance=ExtResource("7_icivj")]
+levelLoader = NodePath("../LevelLoader")
 
 [connection signal="body_entered" from="WaterObstacle" to="WaterObstacle" method="_on_body_entered"]

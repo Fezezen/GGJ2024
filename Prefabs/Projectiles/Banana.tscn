@@ -14,9 +14,9 @@ scale = Vector2(0.44, 0.44)
 texture = ExtResource("2_1vsmt")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0.149998, 1.19209e-07)
+position = Vector2(0.2, 0)
 rotation = -3.14159
-scale = Vector2(0.359999, 0.0299999)
+scale = Vector2(1.7, 0.213)
 
 [node name="ImpactSFX" parent="." index="2"]
 stream = ExtResource("3_khcay")

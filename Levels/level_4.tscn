@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://blmh028cxlt70"]
+[gd_scene load_steps=23 format=3 uid="uid://blmh028cxlt70"]
 
 [ext_resource type="Texture2D" uid="uid://b1gjx6nfatdlu" path="res://Sprites/Bg1.png" id="1_wedqj"]
 [ext_resource type="PackedScene" uid="uid://bkgpo48ubfnwj" path="res://Prefabs/cloud.tscn" id="2_3t7co"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cgqg721hlb1st" path="res://Prefabs/level_loader.tscn" id="7_onvvn"]
 [ext_resource type="PackedScene" uid="uid://c5bwjijfafj4a" path="res://Prefabs/WeaponSpawner.tscn" id="8_pgj7q"]
 [ext_resource type="Texture2D" uid="uid://csiv2ti05jc3y" path="res://Sprites/BirdFlying.png" id="9_g0i3t"]
+[ext_resource type="PackedScene" uid="uid://cxxmsodrx03ua" path="res://Prefabs/lives_hud.tscn" id="10_owb04"]
 [ext_resource type="Script" path="res://Scripts/birb.gd" id="10_wmdwy"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nptov"]
@@ -198,3 +199,6 @@ projectile = ExtResource("6_la4co")
 wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="LivesHud" parent="." node_paths=PackedStringArray("levelLoader") instance=ExtResource("10_owb04")]
+levelLoader = NodePath("../LevelLoader")

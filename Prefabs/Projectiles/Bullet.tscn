@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b7ri3xu6q8mgm" path="res://Sprites/icon.svg" id="2_ish7y"]
 [ext_resource type="AudioStream" uid="uid://874xhe7toclg" path="res://Sounds/coconut.wav" id="3_gvwbp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pat5h"]
-size = Vector2(11.9445, 120)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggnp1"]
+size = Vector2(2.98613, 30)
 
 [node name="Bullet" type="Area2D"]
 scale = Vector2(17.04, 13.76)
@@ -20,7 +20,7 @@ texture = ExtResource("2_ish7y")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.03221e-08)
 scale = Vector2(0.6, 0.05)
-shape = SubResource("RectangleShape2D_pat5h")
+shape = SubResource("RectangleShape2D_ggnp1")
 
 [node name="ImpactSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gvwbp")

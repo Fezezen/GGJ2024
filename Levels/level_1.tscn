@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cr77qgy1l4gbv"]
+[gd_scene load_steps=18 format=3 uid="uid://cr77qgy1l4gbv"]
 
 [ext_resource type="Texture2D" uid="uid://dyagu2c5u7ppq" path="res://Tilesets/arcade_platformerV2.png" id="1_quijy"]
 [ext_resource type="PackedScene" uid="uid://dky3k75q8h8md" path="res://Prefabs/player1.tscn" id="2_hsygr"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bjlcbie3yyh5u" path="res://Sprites/Anger.png" id="6_bes62"]
 [ext_resource type="PackedScene" uid="uid://cgqg721hlb1st" path="res://Prefabs/level_loader.tscn" id="7_1nadn"]
 [ext_resource type="PackedScene" uid="uid://ufyshko2d8wa" path="res://Prefabs/Jumppad.tscn" id="7_4a2ki"]
+[ext_resource type="Script" path="res://Levels/ScoreHud.gd" id="9_f60fm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_odab3"]
 texture = ExtResource("1_quijy")
@@ -2599,5 +2600,55 @@ Player1 = NodePath("../Player1")
 Player2 = NodePath("../Player2")
 
 [node name="WeaponSpawner" parent="." instance=ExtResource("5_2gbop")]
+
+[node name="LivesHud" type="CanvasLayer" parent="." node_paths=PackedStringArray("levelLoader")]
+script = ExtResource("9_f60fm")
+levelLoader = NodePath("../LevelLoader")
+
+[node name="Lives1Text" type="Label" parent="LivesHud"]
+modulate = Color(0.811765, 0.835294, 0.831373, 1)
+z_index = 6
+offset_left = 50.0
+offset_top = 30.0
+offset_right = 417.06
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 40
+text = "player 1 Lives: "
+
+[node name="Lives2Text" type="Label" parent="LivesHud"]
+modulate = Color(0.811765, 0.835294, 0.831373, 1)
+z_index = 6
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -420.0
+offset_right = -52.9399
+offset_bottom = 55.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "player 2 Lives: "
+
+[node name="Lives1" type="Label" parent="LivesHud"]
+modulate = Color(0.811765, 0.835294, 0.831373, 1)
+z_index = 6
+offset_left = 336.0
+offset_top = 32.0
+offset_right = 703.06
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="Lives2" type="Label" parent="LivesHud"]
+modulate = Color(0.811765, 0.835294, 0.831373, 1)
+z_index = 6
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_right = 239.06
+offset_bottom = 55.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "0"
 
 [connection signal="body_entered" from="MadFace" to="MadFace" method="_on_body_entered"]

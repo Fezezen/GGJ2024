@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bknkv8hehxu7y"]
+[gd_scene load_steps=13 format=3 uid="uid://bknkv8hehxu7y"]
 
 [ext_resource type="Texture2D" uid="uid://bs5bq4hiymnp1" path="res://Tilesets/Amazing_Tilesheet_NoCollision.png" id="1_ang7f"]
 [ext_resource type="Texture2D" uid="uid://huoc8xnwssc" path="res://Tilesets/Amazing_Tilesheet.png" id="2_krtl8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cg62rpkhgdts7" path="res://Prefabs/player2.tscn" id="4_nm2j0"]
 [ext_resource type="PackedScene" uid="uid://cgqg721hlb1st" path="res://Prefabs/level_loader.tscn" id="5_e0fu0"]
 [ext_resource type="PackedScene" uid="uid://c5bwjijfafj4a" path="res://Prefabs/WeaponSpawner.tscn" id="6_n18jn"]
+[ext_resource type="PackedScene" uid="uid://cxxmsodrx03ua" path="res://Prefabs/lives_hud.tscn" id="7_nfw5o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_swf2k"]
 texture = ExtResource("1_ang7f")
@@ -486,6 +487,9 @@ Player1 = NodePath("../Player1")
 Player2 = NodePath("../Player2")
 
 [node name="WeaponSpawner" parent="." instance=ExtResource("6_n18jn")]
+
+[node name="LivesHud" parent="." node_paths=PackedStringArray("levelLoader") instance=ExtResource("7_nfw5o")]
+levelLoader = NodePath("../LevelLoader")
 
 [editable path="Player2"]
 [editable path="Player1"]
