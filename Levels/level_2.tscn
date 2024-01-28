@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dky3k75q8h8md" path="res://Prefabs/player1.tscn" id="2_wvnn5"]
 [ext_resource type="PackedScene" uid="uid://cg62rpkhgdts7" path="res://Prefabs/player2.tscn" id="3_8wtfa"]
 [ext_resource type="Texture2D" uid="uid://ds4vqhsudv3bj" path="res://Sprites/Wata'r.png" id="4_q868l"]
-[ext_resource type="PackedScene" path="res://Prefabs/level_loader.tscn" id="6_5y4sw"]
+[ext_resource type="PackedScene" uid="uid://cgqg721hlb1st" path="res://Prefabs/level_loader.tscn" id="6_5y4sw"]
 [ext_resource type="PackedScene" uid="uid://c5bwjijfafj4a" path="res://Prefabs/WeaponSpawner.tscn" id="7_tuogg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uum18"]
@@ -778,7 +778,7 @@ scale = Vector2(0.759999, 0.95064)
 texture = ExtResource("4_q868l")
 
 [node name="LevelLoader" parent="." instance=ExtResource("6_5y4sw")]
-nextLevelName = "level_1"
+nextLevelName = "level_3"
 
 [node name="WeaponSpawner" parent="." instance=ExtResource("7_tuogg")]
 script = null

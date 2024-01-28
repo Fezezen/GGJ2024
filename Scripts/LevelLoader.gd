@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var nextLevelName = "level_1"
+@export var nextLevelName = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
