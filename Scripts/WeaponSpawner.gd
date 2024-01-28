@@ -1,6 +1,6 @@
 extends Node
 
-@export var Weapons : Array[PackedScene] = []
+@export var Weapons : Array[Resource] = []
 
 @onready var spawnTimer : float = 1
 

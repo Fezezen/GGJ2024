@@ -8,4 +8,4 @@
 
 [node name="WeaponSpawner" type="Node2D"]
 script = ExtResource("1_oj6jd")
-Weapons = Array[PackedScene]([ExtResource("2_irc04"), ExtResource("3_3ghx2"), ExtResource("4_0uqwj"), ExtResource("5_a0wkh")])
+Weapons = Array[PackedScene]([ExtResource("2_irc04"), ExtResource("4_0uqwj"), ExtResource("3_3ghx2"), ExtResource("5_a0wkh")])

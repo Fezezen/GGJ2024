@@ -2,6 +2,7 @@ extends Area2D
 
 @export var speed = 1000
 @export var damage = 30
+
 var velocity = Vector2(1,0)
 var ignoreBody = null
 
@@ -15,6 +16,12 @@ func _on_body_entered(body):
 	
 	if body.is_in_group("Player"):
 		body._take_damage(damage)
+		
+		#play impact sound
+		var sfxPlayer = $ImpactSFX.duplicate()
+		sfxPlayer.finished.connect(queue_free)
+		get_tree().get_root().add_child(sfxPlayer)
+		sfxPlayer.play()
 		
 	queue_free()
 	
