@@ -6,7 +6,7 @@
 
 [node name="Banana" instance=ExtResource("1_lyr1h")]
 scale = Vector2(1, 1)
-gravity = 0.0
+gravity = 300.242
 damage = 20
 
 [node name="Sprite2D" parent="." index="0"]
