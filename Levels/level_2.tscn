@@ -781,5 +781,6 @@ texture = ExtResource("4_q868l")
 nextLevelName = "level_1"
 
 [node name="WeaponSpawner" parent="." instance=ExtResource("7_tuogg")]
+script = null
 
 [connection signal="body_entered" from="WaterObstacle" to="WaterObstacle" method="_on_body_entered"]
