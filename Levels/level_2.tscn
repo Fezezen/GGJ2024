@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://caemytigqgmsy"]
+[gd_scene load_steps=12 format=3 uid="uid://caemytigqgmsy"]
 
 [ext_resource type="Texture2D" uid="uid://bd66cj7g4kmxt" path="res://Tilesets/Tileset.png" id="1_wtfik"]
+[ext_resource type="Script" path="res://Scripts/LevelLoader.gd" id="1_y2fek"]
 [ext_resource type="PackedScene" uid="uid://dky3k75q8h8md" path="res://Prefabs/player1.tscn" id="2_wvnn5"]
 [ext_resource type="PackedScene" uid="uid://cg62rpkhgdts7" path="res://Prefabs/player2.tscn" id="3_8wtfa"]
 [ext_resource type="Texture2D" uid="uid://ds4vqhsudv3bj" path="res://Sprites/Wata'r.png" id="4_q868l"]
+[ext_resource type="PackedScene" uid="uid://cgqg721hlb1st" path="res://Prefabs/level_loader.tscn" id="6_5y4sw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uum18"]
 texture = ExtResource("1_wtfik")
@@ -501,6 +503,7 @@ func _on_body_entered(body : CharacterBody2D):
 size = Vector2(2600, 1488)
 
 [node name="Level_2" type="Node2D"]
+script = ExtResource("1_y2fek")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(5, 5)
@@ -520,11 +523,11 @@ layer_3/name = "Foreground"
 layer_3/z_index = 2
 layer_3/tile_data = PackedInt32Array(131091, 0, 9, 196627, 262144, 9, 131092, 65536, 9, 196628, 65536, 10, 131093, 131072, 9, 196629, 131072, 10, 131094, 196608, 9, 196630, 196608, 10, 131095, 262144, 9, 196631, 262144, 10, 131077, 0, 9, 196613, 0, 10, 131078, 65536, 9, 196614, 65536, 10, 131079, 131072, 9, 196615, 131072, 10, 131080, 196608, 9, 196616, 196608, 10, 131081, 262144, 9, 196617, 262144, 10, 196619, 0, 9, 262155, 0, 10, 196620, 65536, 9, 262156, 65536, 10, 196621, 131072, 9, 262157, 131072, 10, 196622, 131072, 9, 262158, 131072, 10, 196623, 131072, 9, 262159, 131072, 10, 196624, 131072, 9, 262160, 131072, 10, 196625, 131072, 9, 262161, 131072, 10, 196626, 196608, 9, 262162, 196608, 10, 262163, 262144, 10, 458772, 65536, 5, 524308, 65536, 6, 589844, 65536, 7, 655380, 65536, 8, 458773, 131072, 5, 524309, 131072, 6, 589845, 131072, 7, 655381, 131072, 8, 458774, 196608, 5, 524310, 196608, 6, 589846, 196608, 7, 655382, 196608, 8, 458754, 65536, 5, 524290, 65536, 6, 589826, 65536, 7, 655362, 65536, 8, 458755, 131072, 5, 524291, 131072, 6, 589827, 131072, 7, 655363, 131072, 8, 458756, 196608, 5, 524292, 196608, 6, 589828, 196608, 7, 655364, 196608, 8, 2, 131072, 11, 65538, 131072, 12, 10, 131072, 11, 65546, 131072, 12, 22, 131072, 11, 65558, 131072, 12, 262143, 0, 9, 327679, 0, 10, 196608, 65536, 9, 262144, 65536, 10, 196609, 131072, 9, 262145, 131072, 10, 196610, 131072, 9, 262146, 131072, 10, 196611, 196608, 9, 262147, 196608, 10, 196612, 262144, 9, 262148, 262144, 10)
 
-[node name="Player" parent="." instance=ExtResource("2_wvnn5")]
-position = Vector2(320, 568)
+[node name="Player1" parent="." instance=ExtResource("2_wvnn5")]
+position = Vector2(280, 728)
 
 [node name="Player2" parent="." instance=ExtResource("3_8wtfa")]
-position = Vector2(1784, 568)
+position = Vector2(1720, 688)
 
 [node name="PlatformCollision1" type="StaticBody2D" parent="."]
 position = Vector2(480, 264)
@@ -772,5 +775,8 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 z_index = 2
 scale = Vector2(0.759999, 0.95064)
 texture = ExtResource("4_q868l")
+
+[node name="LevelLoader" parent="." instance=ExtResource("6_5y4sw")]
+nextLevelName = "level_1"
 
 [connection signal="body_entered" from="WaterObstacle" to="WaterObstacle" method="_on_body_entered"]
