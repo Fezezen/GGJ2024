@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://cr77qgy1l4gbv"]
+[gd_scene load_steps=17 format=3 uid="uid://3sntgov2ckg6"]
 
 [ext_resource type="Texture2D" uid="uid://dyagu2c5u7ppq" path="res://Tilesets/arcade_platformerV2.png" id="1_quijy"]
 [ext_resource type="PackedScene" uid="uid://dky3k75q8h8md" path="res://Prefabs/player1.tscn" id="2_hsygr"]
 [ext_resource type="PackedScene" uid="uid://cg62rpkhgdts7" path="res://Prefabs/player2.tscn" id="3_atmg7"]
 [ext_resource type="Texture2D" uid="uid://bgxb56nbm43rm" path="res://Tilesets/twilight-tiles.png" id="3_eeyt8"]
 [ext_resource type="Texture2D" uid="uid://bjlcbie3yyh5u" path="res://Sprites/Anger.png" id="6_bes62"]
-[ext_resource type="PackedScene" path="res://Prefabs/level_loader.tscn" id="7_1nadn"]
-[ext_resource type="PackedScene" path="res://Prefabs/Jumppad.tscn" id="7_4a2ki"]
+[ext_resource type="PackedScene" uid="uid://cgqg721hlb1st" path="res://Prefabs/level_loader.tscn" id="7_1nadn"]
+[ext_resource type="PackedScene" uid="uid://ufyshko2d8wa" path="res://Prefabs/Jumppad.tscn" id="7_4a2ki"]
+[ext_resource type="PackedScene" path="res://Prefabs/WeaponSpawner.tscn" id="8_vpq4g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_odab3"]
 texture = ExtResource("1_quijy")
@@ -2594,5 +2595,7 @@ position = Vector2(1184, 872)
 jumpPower = -2000.0
 
 [node name="LevelLoader" parent="." instance=ExtResource("7_1nadn")]
+
+[node name="WeaponSpawner" parent="." instance=ExtResource("8_vpq4g")]
 
 [connection signal="body_entered" from="MadFace" to="MadFace" method="_on_body_entered"]
