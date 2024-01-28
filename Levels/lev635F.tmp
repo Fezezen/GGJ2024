@@ -1,0 +1,178 @@
+[gd_scene load_steps=14 format=3 uid="uid://bl3fkoo161jg4"]
+
+[ext_resource type="Texture2D" uid="uid://b1gjx6nfatdlu" path="res://Sprites/Bg1.png" id="1_wedqj"]
+[ext_resource type="PackedScene" uid="uid://bkgpo48ubfnwj" path="res://Prefabs/cloud.tscn" id="2_3t7co"]
+[ext_resource type="PackedScene" uid="uid://dky3k75q8h8md" path="res://Prefabs/player1.tscn" id="3_420pt"]
+[ext_resource type="PackedScene" uid="uid://cg62rpkhgdts7" path="res://Prefabs/player2.tscn" id="4_lr4p0"]
+[ext_resource type="Texture2D" uid="uid://bjlcbie3yyh5u" path="res://Sprites/Anger.png" id="5_g6rbh"]
+[ext_resource type="Script" path="res://Levels/Poop.gd" id="6_tdueo"]
+[ext_resource type="Texture2D" uid="uid://ybbq1ae2ebga" path="res://poop.png" id="7_1h8c8"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nptov"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_je1i8"]
+size = Vector2(296, 64)
+
+[sub_resource type="GDScript" id="GDScript_b24b5"]
+script/source = "extends Node2D
+
+@export var cloudScene: PackedScene
+@onready var timer: Timer = $Timer
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if timer.time_left <= 0:
+		var cloud = cloudScene.instantiate()
+		cloud.position = position
+		get_tree().get_root().add_child(cloud)
+		timer.start()
+"
+
+[sub_resource type="GDScript" id="GDScript_ohco8"]
+script/source = "extends Sprite2D
+
+@onready var path: PathFollow2D = $\"../Path2D/PathFollow2D\"
+@onready var attackTimer: Timer = $Timer
+@export var speed: float = 50
+@export var projectile: PackedScene
+
+func _ready():
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	path.progress_ratio += delta * speed
+	position = path.position
+	
+	if attackTimer.wait_time <= 0:
+		var p = projectile.instantiate()
+		p.position = position
+		get_tree().get_root().add_child(p)
+		attackTimer.start()
+"
+
+[sub_resource type="Curve2D" id="Curve2D_mermu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -128, 128, 0, 0, 0, 0, 2048, 128, 0, 0, 0, 0, 2048, 184, 0, 0, 0, 0, -128, 184, 0, 0, 0, 0, -128, 128)
+}
+point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4ap4"]
+size = Vector2(256, 256)
+
+[node name="level_4" type="Node2D"]
+
+[node name="Bg1" type="Sprite2D" parent="."]
+position = Vector2(960, 544)
+texture = ExtResource("1_wedqj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+modulate = Color(0.219608, 0.223529, 0.270588, 1)
+position = Vector2(300, 1050)
+scale = Vector2(300, 60)
+texture = SubResource("PlaceholderTexture2D_nptov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(300, 1048)
+shape = SubResource("RectangleShape2D_je1i8")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+modulate = Color(0.219608, 0.223529, 0.270588, 1)
+position = Vector2(1620, 1050)
+scale = Vector2(300, 60)
+texture = SubResource("PlaceholderTexture2D_nptov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1624, 1048)
+shape = SubResource("RectangleShape2D_je1i8")
+
+[node name="Player" parent="." instance=ExtResource("3_420pt")]
+position = Vector2(304, 912)
+
+[node name="Player2" parent="." instance=ExtResource("4_lr4p0")]
+position = Vector2(1624, 888)
+
+[node name="CloudSpawner" type="Node2D" parent="."]
+position = Vector2(-184, 1000)
+script = SubResource("GDScript_b24b5")
+cloudScene = ExtResource("2_3t7co")
+
+[node name="Timer" type="Timer" parent="CloudSpawner"]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="CloudSpawner2" type="Node2D" parent="."]
+position = Vector2(-368, 800)
+script = SubResource("GDScript_b24b5")
+cloudScene = ExtResource("2_3t7co")
+
+[node name="Timer" type="Timer" parent="CloudSpawner2"]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="CloudSpawner3" type="Node2D" parent="."]
+position = Vector2(-184, 600)
+script = SubResource("GDScript_b24b5")
+cloudScene = ExtResource("2_3t7co")
+
+[node name="Timer" type="Timer" parent="CloudSpawner3"]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="CloudSpawner4" type="Node2D" parent="."]
+position = Vector2(-368, 400)
+script = SubResource("GDScript_b24b5")
+cloudScene = ExtResource("2_3t7co")
+
+[node name="Timer" type="Timer" parent="CloudSpawner4"]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="Birb" type="Sprite2D" parent="."]
+texture = ExtResource("5_g6rbh")
+script = SubResource("GDScript_ohco8")
+speed = 0.1
+
+[node name="Timer" type="Timer" parent="Birb"]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_mermu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-128, 128)
+
+[node name="Poop" type="Area2D" parent="."]
+position = Vector2(96, 144)
+rotation = 3.14159
+scale = Vector2(0.3, 0.2)
+script = ExtResource("6_tdueo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Poop"]
+position = Vector2(-24, 0)
+shape = SubResource("RectangleShape2D_c4ap4")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="Poop"]
+texture = ExtResource("7_1h8c8")
+
+[node name="Timer" type="Timer" parent="Poop"]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Poop" to="Poop" method="_on_body_entered"]

@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://bl3fkoo161jg4"]
+
+[ext_resource type="Texture2D" uid="uid://wxt0wj5a88yb" path="res://Sprites/Bg1.png" id="1_wedqj"]
+[ext_resource type="PackedScene" uid="uid://bkgpo48ubfnwj" path="res://Prefabs/cloud.tscn" id="2_3t7co"]
+[ext_resource type="PackedScene" uid="uid://dky3k75q8h8md" path="res://Prefabs/player1.tscn" id="3_420pt"]
+[ext_resource type="PackedScene" uid="uid://cg62rpkhgdts7" path="res://Prefabs/player2.tscn" id="4_lr4p0"]
+
+[sub_resource type="GDScript" id="GDScript_b24b5"]
+script/source = "extends Node2D
+
+@export var cloudScene: PackedScene
+@onready var timer: Timer = $Timer
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if timer.time_left <= 0:
+		var cloud = cloudScene.instantiate()
+		cloud.position = position
+		get_tree().get_root().add_child(cloud)
+		timer.start()
+"
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nptov"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_je1i8"]
+size = Vector2(296, 64)
+
+[node name="level_4" type="Node2D"]
+
+[node name="Bg1" type="Sprite2D" parent="."]
+position = Vector2(944, 560)
+scale = Vector2(31, 35)
+texture = ExtResource("1_wedqj")
+
+[node name="CloudSpawner" type="Node2D" parent="."]
+position = Vector2(-184, 1000)
+script = SubResource("GDScript_b24b5")
+cloudScene = ExtResource("2_3t7co")
+
+[node name="Timer" type="Timer" parent="CloudSpawner"]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+modulate = Color(0.219608, 0.223529, 0.270588, 1)
+position = Vector2(300, 1050)
+scale = Vector2(300, 60)
+texture = SubResource("PlaceholderTexture2D_nptov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(300, 1048)
+shape = SubResource("RectangleShape2D_je1i8")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+modulate = Color(0.219608, 0.223529, 0.270588, 1)
+position = Vector2(1620, 1050)
+scale = Vector2(300, 60)
+texture = SubResource("PlaceholderTexture2D_nptov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1624, 1048)
+shape = SubResource("RectangleShape2D_je1i8")
+
+[node name="Player" parent="." instance=ExtResource("3_420pt")]
+position = Vector2(304, 912)
+
+[node name="Player2" parent="." instance=ExtResource("4_lr4p0")]
+position = Vector2(1624, 888)

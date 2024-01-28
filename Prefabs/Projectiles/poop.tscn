@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgr35t5xwylt5"]
+
+[ext_resource type="Script" path="res://Levels/Poop.gd" id="1_tgapd"]
+[ext_resource type="Texture2D" uid="uid://ybbq1ae2ebga" path="res://Sprites/poop.png" id="2_n7w0e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4ap4"]
+size = Vector2(256, 256)
+
+[node name="Poop" type="Area2D"]
+position = Vector2(96, 144)
+rotation = 3.14159
+scale = Vector2(0.3, 0.2)
+script = ExtResource("1_tgapd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-24, 0)
+shape = SubResource("RectangleShape2D_c4ap4")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_n7w0e")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -480,7 +480,7 @@ shape = SubResource("RectangleShape2D_1kb71")
 one_way_collision = true
 
 [node name="LevelLoader" parent="." instance=ExtResource("5_e0fu0")]
-nextLevelName = "level_1"
+nextLevelName = "level_4"
 
 [editable path="Player2"]
 [editable path="Player1"]
