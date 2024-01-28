@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmwhga8gxaobt"
-path="res://.godot/imported/Beautiful_Sky.png-a6b05cefbeaad22cbe1f4827b7e9adbe.ctex"
+uid="uid://ds4vqhsudv3bj"
+path="res://.godot/imported/Wata'r.png-3e7e5231e4437b2e058275fffc7a9a57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Beautiful_Sky.png"
-dest_files=["res://.godot/imported/Beautiful_Sky.png-a6b05cefbeaad22cbe1f4827b7e9adbe.ctex"]
+source_file="res://Sprites/Wata'r.png"
+dest_files=["res://.godot/imported/Wata'r.png-3e7e5231e4437b2e058275fffc7a9a57.ctex"]
 
 [params]
 
