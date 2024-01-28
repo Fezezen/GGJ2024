@@ -40,6 +40,8 @@ func _physics_process(delta):
 	if direction:
 		lastDirection = direction
 		velocity.x = direction * SPEED
+		
+		$Sprite.flip_h = direction == 1
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 

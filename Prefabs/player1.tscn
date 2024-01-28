@@ -1,5 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dky3k75q8h8md"]
+[gd_scene load_steps=3 format=3 uid="uid://dky3k75q8h8md"]
 
 [ext_resource type="PackedScene" uid="uid://bjk3gltcqg6gj" path="res://Prefabs/PlayerBase.tscn" id="1_rdvlj"]
+[ext_resource type="Texture2D" uid="uid://pa4j245pk7dq" path="res://Sprites/MelonIdle.png" id="2_0b65d"]
 
 [node name="Player" groups=["Player"] instance=ExtResource("1_rdvlj")]
+
+[node name="Sprite" parent="." index="3"]
+position = Vector2(0, -3.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_0b65d")
