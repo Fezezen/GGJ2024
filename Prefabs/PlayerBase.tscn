@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bjk3gltcqg6gj"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_2fn33"]
-[ext_resource type="PackedScene" uid="uid://bdb8umtfjiijj" path="res://Prefabs/Projectiles/Bullet.tscn" id="2_8gvi0"]
 [ext_resource type="Texture2D" uid="uid://bo1yxrrbhwoa5" path="res://Sprites/PlayerHead.png" id="2_hao02"]
+[ext_resource type="PackedScene" uid="uid://bni2o8b8wp330" path="res://Prefabs/Projectiles/Apple.tscn" id="2_p0h1t"]
 [ext_resource type="Texture2D" uid="uid://dcc56i5fes60s" path="res://Sprites/PlayerBody.png" id="3_1o1re"]
 [ext_resource type="Texture2D" uid="uid://dnabve7u0p7d3" path="res://Sprites/PlayerArm.png" id="4_roy3d"]
 [ext_resource type="Texture2D" uid="uid://e5twtnq8ypge" path="res://Sprites/PlayerLeg.png" id="5_byyaa"]
@@ -10,7 +10,8 @@
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(7, 7)
 script = ExtResource("1_2fn33")
-Bullet = ExtResource("2_8gvi0")
+JUMP_VELOCITY = -1100.0
+Bullet = ExtResource("2_p0h1t")
 
 [node name="Bullet_Left" type="Marker2D" parent="."]
 position = Vector2(-5, 0)
