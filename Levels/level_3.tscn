@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://huoc8xnwssc" path="res://Tilesets/Amazing_Tilesheet.png" id="2_krtl8"]
 [ext_resource type="PackedScene" uid="uid://dky3k75q8h8md" path="res://Prefabs/player1.tscn" id="3_341oe"]
 [ext_resource type="PackedScene" uid="uid://cg62rpkhgdts7" path="res://Prefabs/player2.tscn" id="4_nm2j0"]
-[ext_resource type="PackedScene" path="res://Prefabs/level_loader.tscn" id="5_e0fu0"]
+[ext_resource type="PackedScene" uid="uid://cgqg721hlb1st" path="res://Prefabs/level_loader.tscn" id="5_e0fu0"]
 [ext_resource type="PackedScene" uid="uid://c5bwjijfafj4a" path="res://Prefabs/WeaponSpawner.tscn" id="6_n18jn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_swf2k"]
@@ -480,8 +480,10 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_1kb71")
 one_way_collision = true
 
-[node name="LevelLoader" parent="." instance=ExtResource("5_e0fu0")]
+[node name="LevelLoader" parent="." node_paths=PackedStringArray("Player1", "Player2") instance=ExtResource("5_e0fu0")]
 nextLevelName = "level_4"
+Player1 = NodePath("../Player1")
+Player2 = NodePath("../Player2")
 
 [node name="WeaponSpawner" parent="." instance=ExtResource("6_n18jn")]
 

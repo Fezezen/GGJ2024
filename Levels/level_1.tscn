@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bgxb56nbm43rm" path="res://Tilesets/twilight-tiles.png" id="3_eeyt8"]
 [ext_resource type="PackedScene" uid="uid://c5bwjijfafj4a" path="res://Prefabs/WeaponSpawner.tscn" id="5_2gbop"]
 [ext_resource type="Texture2D" uid="uid://bjlcbie3yyh5u" path="res://Sprites/Anger.png" id="6_bes62"]
-[ext_resource type="PackedScene" path="res://Prefabs/level_loader.tscn" id="7_1nadn"]
-[ext_resource type="PackedScene" path="res://Prefabs/Jumppad.tscn" id="7_4a2ki"]
+[ext_resource type="PackedScene" uid="uid://cgqg721hlb1st" path="res://Prefabs/level_loader.tscn" id="7_1nadn"]
+[ext_resource type="PackedScene" uid="uid://ufyshko2d8wa" path="res://Prefabs/Jumppad.tscn" id="7_4a2ki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_odab3"]
 texture = ExtResource("1_quijy")
@@ -2594,7 +2594,9 @@ jumpPower = -2000.0
 position = Vector2(1184, 872)
 jumpPower = -2000.0
 
-[node name="LevelLoader" parent="." instance=ExtResource("7_1nadn")]
+[node name="LevelLoader" parent="." node_paths=PackedStringArray("Player1", "Player2") instance=ExtResource("7_1nadn")]
+Player1 = NodePath("../Player1")
+Player2 = NodePath("../Player2")
 
 [node name="WeaponSpawner" parent="." instance=ExtResource("5_2gbop")]
 

@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var SPEED = 500.0
 @export var JUMP_VELOCITY = -480.0
 
+signal on_death
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var lastDirection = 1
@@ -97,12 +99,14 @@ func _take_damage(damage):
 	health -= damage
 	
 	if health <= 0:
+		emit_signal("on_death")
 		respawn()
 
 func respawn():
 	hide()
 	set_process_input(false)
-	await get_tree().create_timer(1.0).timeout
+	if get_tree() != null:
+		await get_tree().create_timer(1.0).timeout
 	show()
 	set_process_input(true)
 	health = maxHealth

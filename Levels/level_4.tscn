@@ -1,11 +1,11 @@
 [gd_scene load_steps=22 format=3 uid="uid://blmh028cxlt70"]
 
 [ext_resource type="Texture2D" uid="uid://b1gjx6nfatdlu" path="res://Sprites/Bg1.png" id="1_wedqj"]
-[ext_resource type="PackedScene" path="res://Prefabs/cloud.tscn" id="2_3t7co"]
+[ext_resource type="PackedScene" uid="uid://bkgpo48ubfnwj" path="res://Prefabs/cloud.tscn" id="2_3t7co"]
 [ext_resource type="PackedScene" uid="uid://dky3k75q8h8md" path="res://Prefabs/player1.tscn" id="3_420pt"]
 [ext_resource type="PackedScene" uid="uid://cg62rpkhgdts7" path="res://Prefabs/player2.tscn" id="4_lr4p0"]
-[ext_resource type="PackedScene" path="res://Prefabs/Projectiles/poop.tscn" id="6_la4co"]
-[ext_resource type="PackedScene" path="res://Prefabs/level_loader.tscn" id="7_onvvn"]
+[ext_resource type="PackedScene" uid="uid://dgr35t5xwylt5" path="res://Prefabs/Projectiles/poop.tscn" id="6_la4co"]
+[ext_resource type="PackedScene" uid="uid://cgqg721hlb1st" path="res://Prefabs/level_loader.tscn" id="7_onvvn"]
 [ext_resource type="PackedScene" uid="uid://c5bwjijfafj4a" path="res://Prefabs/WeaponSpawner.tscn" id="8_pgj7q"]
 [ext_resource type="Texture2D" uid="uid://csiv2ti05jc3y" path="res://Sprites/BirdFlying.png" id="9_g0i3t"]
 [ext_resource type="Script" path="res://Scripts/birb.gd" id="10_wmdwy"]
@@ -179,10 +179,10 @@ curve = SubResource("Curve2D_mermu")
 [node name="PathFollow2D" type="PathFollow2D" parent="BirdPath2D"]
 position = Vector2(-128, 128)
 
-[node name="LevelLoader" parent="." instance=ExtResource("7_onvvn")]
+[node name="LevelLoader" parent="." node_paths=PackedStringArray("Player1", "Player2") instance=ExtResource("7_onvvn")]
 nextLevelName = "level_1"
-
-[node name="WeaponSpawner" parent="." instance=ExtResource("8_pgj7q")]
+Player1 = NodePath("../Player")
+Player2 = NodePath("../Player2")
 
 [node name="WeaponSpawner2" parent="." instance=ExtResource("8_pgj7q")]
 
