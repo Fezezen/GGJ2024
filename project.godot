@@ -70,6 +70,10 @@ p2_shoot={
 2d_physics/layer_2="Projectile"
 2d_physics/layer_3="Ladder"
 
+[physics]
+
+2d/default_gravity=3000.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
