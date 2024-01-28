@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://e5twtnq8ypge" path="res://Sprites/PlayerLeg.png" id="5_byyaa"]
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(7, 7)
 script = ExtResource("1_2fn33")
 Bullet = ExtResource("2_8gvi0")
 

@@ -61,15 +61,15 @@ func _process(delta):
 		spawnProtectionFlash += delta
 		
 		if spawnProtection <= 0:
-			show()
+			modulate.a = 1
 		else:
 			if spawnProtectionFlash > 0.5:
 				spawnProtectionFlash = 0
 			
 			if spawnProtectionFlash > 0.25:
-				hide()
+				modulate.a = 0.5
 			else:
-				show()
+				modulate.a = 1
 
 func screen_wrap():
 	position = position.posmodv(screen_size)
