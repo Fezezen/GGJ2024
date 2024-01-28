@@ -1,13 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://bl3fkoo161jg4"]
+[gd_scene load_steps=22 format=3 uid="uid://blmh028cxlt70"]
 
 [ext_resource type="Texture2D" uid="uid://b1gjx6nfatdlu" path="res://Sprites/Bg1.png" id="1_wedqj"]
-[ext_resource type="PackedScene" uid="uid://bkgpo48ubfnwj" path="res://Prefabs/cloud.tscn" id="2_3t7co"]
+[ext_resource type="PackedScene" path="res://Prefabs/cloud.tscn" id="2_3t7co"]
 [ext_resource type="PackedScene" uid="uid://dky3k75q8h8md" path="res://Prefabs/player1.tscn" id="3_420pt"]
 [ext_resource type="PackedScene" uid="uid://cg62rpkhgdts7" path="res://Prefabs/player2.tscn" id="4_lr4p0"]
-[ext_resource type="Texture2D" uid="uid://bjlcbie3yyh5u" path="res://Sprites/Anger.png" id="5_g6rbh"]
-[ext_resource type="PackedScene" uid="uid://dgr35t5xwylt5" path="res://Prefabs/Projectiles/poop.tscn" id="6_la4co"]
-[ext_resource type="PackedScene" uid="uid://cgqg721hlb1st" path="res://Prefabs/level_loader.tscn" id="7_onvvn"]
+[ext_resource type="PackedScene" path="res://Prefabs/Projectiles/poop.tscn" id="6_la4co"]
+[ext_resource type="PackedScene" path="res://Prefabs/level_loader.tscn" id="7_onvvn"]
 [ext_resource type="PackedScene" uid="uid://c5bwjijfafj4a" path="res://Prefabs/WeaponSpawner.tscn" id="8_pgj7q"]
+[ext_resource type="Texture2D" uid="uid://csiv2ti05jc3y" path="res://Sprites/BirdFlying.png" id="9_g0i3t"]
+[ext_resource type="Script" path="res://Scripts/birb.gd" id="10_wmdwy"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nptov"]
 
@@ -33,34 +34,68 @@ func _process(delta):
 		timer.start()
 "
 
-[sub_resource type="GDScript" id="GDScript_ohco8"]
-script/source = "extends Sprite2D
-
-@onready var path: PathFollow2D = $\"../BirdPath2D/PathFollow2D\"
-@onready var attackTimer: Timer = $Timer
-@export var speed: float = 50
-@export var projectile: PackedScene
-
-func _ready():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	path.progress_ratio += delta * speed
-	position = path.position
-	
-	if attackTimer.time_left <= 0:
-		var p = projectile.instantiate()
-		p.position = position
-		get_tree().get_root().add_child(p)
-		attackTimer.start()
-"
-
 [sub_resource type="Curve2D" id="Curve2D_mermu"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -128, 128, 0, 0, 0, 0, 2048, 128, 0, 0, 0, 0, 2048, 184, 0, 0, 0, 0, -128, 184, 0, 0, 0, 0, -128, 128)
 }
 point_count = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8nv8"]
+atlas = ExtResource("9_g0i3t")
+region = Rect2(0, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_empgo"]
+atlas = ExtResource("9_g0i3t")
+region = Rect2(480, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc35n"]
+atlas = ExtResource("9_g0i3t")
+region = Rect2(960, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm2cr"]
+atlas = ExtResource("9_g0i3t")
+region = Rect2(1440, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us6n4"]
+atlas = ExtResource("9_g0i3t")
+region = Rect2(1920, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_facvy"]
+atlas = ExtResource("9_g0i3t")
+region = Rect2(2400, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsl47"]
+atlas = ExtResource("9_g0i3t")
+region = Rect2(2880, 0, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kaaun"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8nv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_empgo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dc35n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rm2cr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us6n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_facvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsl47")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="level_4" type="Node2D"]
 
@@ -138,17 +173,6 @@ wait_time = 4.0
 one_shot = true
 autostart = true
 
-[node name="Birb" type="Sprite2D" parent="."]
-texture = ExtResource("5_g6rbh")
-script = SubResource("GDScript_ohco8")
-speed = 0.1
-projectile = ExtResource("6_la4co")
-
-[node name="Timer" type="Timer" parent="Birb"]
-wait_time = 3.0
-one_shot = true
-autostart = true
-
 [node name="BirdPath2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_mermu")
 
@@ -159,3 +183,18 @@ position = Vector2(-128, 128)
 nextLevelName = "level_1"
 
 [node name="WeaponSpawner" parent="." instance=ExtResource("8_pgj7q")]
+
+[node name="WeaponSpawner2" parent="." instance=ExtResource("8_pgj7q")]
+
+[node name="Birb2" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_kaaun")
+frame_progress = 0.46984
+script = ExtResource("10_wmdwy")
+speed = 0.05
+projectile = ExtResource("6_la4co")
+
+[node name="Timer" type="Timer" parent="Birb2"]
+wait_time = 3.0
+one_shot = true
+autostart = true
