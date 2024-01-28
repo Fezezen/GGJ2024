@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bni2o8b8wp330"]
+
+[ext_resource type="PackedScene" uid="uid://bdb8umtfjiijj" path="res://Prefabs/Projectiles/Bullet.tscn" id="1_ro1jl"]
+[ext_resource type="Texture2D" uid="uid://btjerpqum4get" path="res://Sprites/Apple.png" id="2_eicof"]
+
+[node name="Apple" instance=ExtResource("1_ro1jl")]
+scale = Vector2(1, 1)
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.359999, 0.359999)
+texture = ExtResource("2_eicof")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 1.19209e-07)

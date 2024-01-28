@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxdh8euj83d4i"]
+
+[ext_resource type="PackedScene" uid="uid://b4qywaxjd2bh8" path="res://Prefabs/Weapons/Weapon.tscn" id="1_ia8of"]
+[ext_resource type="PackedScene" uid="uid://d4bwqggs4yiw1" path="res://Prefabs/Projectiles/Banana.tscn" id="2_ks7bd"]
+[ext_resource type="Texture2D" uid="uid://ofm3lja25uy6" path="res://Sprites/Banana.png" id="2_vkoaa"]
+
+[node name="Banana" instance=ExtResource("1_ia8of")]
+Projectile = ExtResource("2_ks7bd")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(2.12, 2.12)
+texture = ExtResource("2_vkoaa")

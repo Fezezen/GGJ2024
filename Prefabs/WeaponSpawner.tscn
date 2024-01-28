@@ -1,0 +1,11 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5bwjijfafj4a"]
+
+[ext_resource type="Script" path="res://Scripts/WeaponSpawner.gd" id="1_oj6jd"]
+[ext_resource type="PackedScene" uid="uid://c52k6j1bn4tib" path="res://Prefabs/Weapons/Apple.tscn" id="2_irc04"]
+[ext_resource type="PackedScene" uid="uid://em1n1mdqikf4" path="res://Prefabs/Weapons/Coconut.tscn" id="3_3ghx2"]
+[ext_resource type="PackedScene" uid="uid://dxdh8euj83d4i" path="res://Prefabs/Weapons/Banana.tscn" id="4_0uqwj"]
+[ext_resource type="PackedScene" uid="uid://dg4hhprexpmch" path="res://Prefabs/Weapons/Grape.tscn" id="5_a0wkh"]
+
+[node name="WeaponSpawner" type="Node2D"]
+script = ExtResource("1_oj6jd")
+Weapons = Array[PackedScene]([ExtResource("2_irc04"), ExtResource("3_3ghx2"), ExtResource("4_0uqwj"), ExtResource("5_a0wkh")])

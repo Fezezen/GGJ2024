@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr77qgy1l4gbv"]
+[gd_scene load_steps=8 format=3 uid="uid://cr77qgy1l4gbv"]
 
 [ext_resource type="Texture2D" uid="uid://dyagu2c5u7ppq" path="res://Sprites/arcade_platformerV2.png" id="1_quijy"]
 [ext_resource type="PackedScene" uid="uid://dky3k75q8h8md" path="res://Prefabs/player1.tscn" id="2_hsygr"]
 [ext_resource type="PackedScene" uid="uid://cg62rpkhgdts7" path="res://Prefabs/player2.tscn" id="3_atmg7"]
 [ext_resource type="Texture2D" uid="uid://dmwhga8gxaobt" path="res://Sprites/Beautiful_Sky.png" id="4_oc4fg"]
+[ext_resource type="PackedScene" uid="uid://c5bwjijfafj4a" path="res://Prefabs/WeaponSpawner.tscn" id="5_2gbop"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_odab3"]
 texture = ExtResource("1_quijy")
@@ -1358,3 +1359,5 @@ z_index = -1
 position = Vector2(965.5, 483.5)
 scale = Vector2(1.38065, 1.88404)
 texture = ExtResource("4_oc4fg")
+
+[node name="WeaponSpawner" parent="." instance=ExtResource("5_2gbop")]

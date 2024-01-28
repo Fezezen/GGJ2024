@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4qywaxjd2bh8"]
+
+[ext_resource type="Script" path="res://Scripts/Weapon.gd" id="1_8xiyf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uilog"]
+radius = 23.1948
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yis8"]
+size = Vector2(28, 30)
+
+[node name="Weapon" type="RigidBody2D"]
+gravity_scale = 0.423
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_8xiyf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_uilog")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3yis8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
