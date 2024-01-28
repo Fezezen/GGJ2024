@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://bjk3gltcqg6gj" path="res://Prefabs/PlayerBase.tscn" id="1_mgcbi"]
 [ext_resource type="Resource" uid="uid://bi7sp66ts6sy3" path="res://Resources/player_2_controls.tres" id="2_4hmo5"]
-[ext_resource type="Texture2D" uid="uid://bpi2sqdvkffm6" path="res://Sprites/RedGuy.png" id="3_y4j8n"]
+[ext_resource type="Texture2D" uid="uid://t1wccfwlt2o0" path="res://Sprites/CitrusIdle.png" id="3_784jc"]
 
 [node name="Player" groups=["Player"] instance=ExtResource("1_mgcbi")]
 controls = ExtResource("2_4hmo5")
 
 [node name="Sprite" parent="." index="3"]
-texture = ExtResource("3_y4j8n")
+position = Vector2(0, -3.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_784jc")

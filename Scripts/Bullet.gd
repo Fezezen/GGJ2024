@@ -11,6 +11,9 @@ func _physics_process(delta):
 	position += velocity * delta
 
 func _on_body_entered(body):
+	if not is_instance_valid(body):
+		return
+	
 	if (body.get_instance_id() == ignoreBody.get_instance_id() or not body.is_visible()):
 		return
 	
