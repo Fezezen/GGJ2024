@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4bwqggs4yiw1"]
+
+[ext_resource type="PackedScene" uid="uid://bdb8umtfjiijj" path="res://Prefabs/Projectiles/Bullet.tscn" id="1_lyr1h"]
+[ext_resource type="Texture2D" uid="uid://ofm3lja25uy6" path="res://Sprites/Banana.png" id="2_1vsmt"]
+
+[node name="Banana" instance=ExtResource("1_lyr1h")]
+scale = Vector2(1, 1)
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("2_1vsmt")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0.149998, 1.19209e-07)
+rotation = -3.14159
+scale = Vector2(0.359999, 0.0299999)

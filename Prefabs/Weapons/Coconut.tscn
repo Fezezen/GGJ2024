@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://em1n1mdqikf4"]
+
+[ext_resource type="PackedScene" uid="uid://b4qywaxjd2bh8" path="res://Prefabs/Weapons/Weapon.tscn" id="1_g5tr1"]
+[ext_resource type="PackedScene" uid="uid://qct3i2ctwnk1" path="res://Prefabs/Projectiles/Coconut.tscn" id="2_0bmyk"]
+[ext_resource type="Texture2D" uid="uid://c8if4rbt8gmiy" path="res://Sprites/Coconut.png" id="2_f75xr"]
+
+[node name="Coconut" instance=ExtResource("1_g5tr1")]
+Projectile = ExtResource("2_0bmyk")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("2_f75xr")
+
+[node name="Area2D" parent="." index="1"]
+scale = Vector2(0.6, 0.6)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+scale = Vector2(1.72, 1.72)
+
+[node name="CollisionShape2D" parent="." index="2"]
+scale = Vector2(1.28, 1.28)

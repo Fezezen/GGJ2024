@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://pbyye0j3vmgn"]
+
+[ext_resource type="PackedScene" uid="uid://bdb8umtfjiijj" path="res://Prefabs/Projectiles/Bullet.tscn" id="1_o7h18"]
+[ext_resource type="Texture2D" uid="uid://coo56o2jp6pxa" path="res://Sprites/Grape.png" id="2_fagbe"]
+
+[node name="Grape" instance=ExtResource("1_o7h18")]
+scale = Vector2(1, 1)
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_fagbe")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-4.47035e-08, 3.03221e-08)
+scale = Vector2(0.05, 0.003)

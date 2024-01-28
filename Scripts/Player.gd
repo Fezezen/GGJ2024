@@ -21,6 +21,8 @@ var currentShootCooldown: float = 0
 @onready var maxHealth : int = health
 @onready var startPosition = position
 
+@export var weaponIndex : int = 0
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -103,3 +105,6 @@ func respawn():
 	health = maxHealth
 	position = startPosition
 	spawnProtection = 2
+
+func _set_weapon(weapon : PackedScene):
+	Bullet = weapon
