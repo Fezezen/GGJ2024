@@ -6,6 +6,8 @@
 
 [node name="Grape" instance=ExtResource("1_o7h18")]
 scale = Vector2(1, 1)
+speed = 1500
+damage = 10
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.12, 0.12)

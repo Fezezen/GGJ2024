@@ -6,6 +6,7 @@
 
 [node name="Grape" instance=ExtResource("1_jbpam")]
 Projectile = ExtResource("2_f53ft")
+shootCooldown = 0.1
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_nrj3e")
